@@ -18,6 +18,7 @@ module.exports = function(config) {
         //check whether aud contains clientid and hd, if provided, matches configured hd
         if (tokenInfo.aud.indexOf(config.client_id) > -1 && (!config.hd || tokenInfo.hd === config.hd)) {
           var firebaseTokenInfo = {
+            provider: 'google',
             uid: 'google:' + tokenInfo.sub,
             email: tokenInfo.email,
             given_name: tokenInfo.given_name,
